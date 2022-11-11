@@ -1,0 +1,17 @@
+.color-cells-list {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.color-cell {
+    display: block;
+    padding: 10px 0;
+    border: 1px solid rgba(239, 9, 9, 0.199);
+    background-color: rgba(244, 94, 94, 0.044);
+    border-radius: 3px;
+    width: 200px;
+}
+
+.color-cell + .color-cell {
+    margin-top: 10px;
+}

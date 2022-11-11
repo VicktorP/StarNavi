@@ -7,14 +7,14 @@ import Table from '../table/Table'
 
 import './Playground.css'
 
-const Playground = () => {
+const Playground = ({getColorCells}) => {
     const dataURL = 'http://demo7919674.mockable.io'
 
     const [data, setData] = useState([])
     const [tableData, setTableData] = useState(0)
     const [value, setValue] = useState('');
 
-   function chengeSelect(event) {
+   function changeSelect(event) {
       setValue(event.target.value);
    }
 
@@ -34,11 +34,11 @@ const Playground = () => {
     return (
         <div className="playground">
             <div className="playground-manage">
-                <Select data={data} value={value} chengeSelect={chengeSelect}/>
+                <Select data={data} value={value} changeSelect={changeSelect}/>
                 <Button text="START" color="#fff" bgc="#3131ff" func={startApp}/>
             </div>
             <div className="squares-field">
-                <Table table={tableData}/>
+                <Table table={tableData} getColorCells={getColorCells}/>
             </div>
         </div>
     )

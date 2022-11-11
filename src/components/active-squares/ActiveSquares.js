@@ -1,8 +1,13 @@
+import './ActiveSquares.css'
 
-
-const ActiveSquares = () => {
+const ActiveSquares = ({colorCells}) => {
     return (
-        <h2>Active squares</h2>
+        <div >
+            <h2>Active squares</h2>
+            <ul className="color-cells-list">
+                {colorCells.map(cell=><li className="color-cell">row {cell.row} col {cell.column}</li>)}
+            </ul>
+        </div>
     )
 }
 
