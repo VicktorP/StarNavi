@@ -1,18 +1,22 @@
-import { useRef } from 'react'
+import { useState } from 'react'
+
+const color1 = 'rgb(63, 164, 237)'
+const color2 = 'rgb(255, 255, 255)'
 
 const Cell = ({row, column, key, getColorCells}) => {
-    const cellRef = useRef(null);
+    const [color, setColor] = useState(color1)
+
     const toggleHandleMouseEnter = (event) => {
-        if(cellRef.current.style.backgroundColor === 'rgb(63, 164, 237)') {
-            cellRef.current.style.backgroundColor = 'rgb(255, 255, 255)'
+        if(color === color1) {
+            setColor(color2)
         } else {
-            cellRef.current.style.backgroundColor = 'rgb(63, 164, 237)'
+            setColor(color1)
         }
-        const colorCell = {
-            row: cellRef.current.dataset.row,
-            column: cellRef.current.dataset.column
-        }
-        getColorCells(colorCell)
+        event.target.style.backgroundColor = color
+        getColorCells({
+            row,
+            column
+        })
     }
 
     return(
@@ -20,7 +24,6 @@ const Cell = ({row, column, key, getColorCells}) => {
             data-row={row} 
             data-column={column} 
             key={key} 
-            ref={cellRef} 
             onMouseEnter={toggleHandleMouseEnter}>
         </td>
     )
@@ -32,13 +35,13 @@ const Row = ({row, key}) => {
     )
 }
 
-const Table = ({table, getColorCells}) => {
+const Table = ({tableSize, getColorCells}) => {
     const tableMarkup = []
-    const workArr = Array.from(Array(table).keys())
+    const workArr = Array.from(Array(tableSize).keys())
     
-    for(let i=1; i<=table; i++) {
+    for(let i=1; i<=tableSize; i++) {
         const row = [...workArr].map((item,index) => {
-            return <Cell row={i} column={index+1} key={`${i}${index+1}`} getColorCells={getColorCells}/>
+            return <Cell row={i} column={index+1} key={`${i}-${index+1}`} getColorCells={getColorCells}/>
         })
         tableMarkup.push(<Row row={[...row]} key={i}/>)
     }

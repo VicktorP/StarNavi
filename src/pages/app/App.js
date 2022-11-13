@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import Playground from '../playground/Playground'
-import ActiveSquares from '../active-squares/ActiveSquares'
+import Playground from '../../components/playground/Playground'
+import ActiveSquares from '../../components/active-squares/ActiveSquares'
 
 import './App.css'
 

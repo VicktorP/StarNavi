@@ -7,8 +7,9 @@ import Table from '../table/Table'
 
 import './Playground.css'
 
-const Playground = ({getColorCells}) => {
-    const dataURL = 'http://demo7919674.mockable.io'
+const dataURL = 'http://demo7919674.mockable.io'
+
+const Playground = ({getColorCells}) => {    
 
     const [data, setData] = useState([])
     const [tableData, setTableData] = useState(0)
@@ -35,10 +36,10 @@ const Playground = ({getColorCells}) => {
         <div className="playground">
             <div className="playground-manage">
                 <Select data={data} value={value} changeSelect={changeSelect}/>
-                <Button text="START" color="#fff" bgc="#3131ff" func={startApp}/>
+                <Button text="START" color="#fff" bgc="#3131ff" onClick={startApp}/>
             </div>
             <div className="squares-field">
-                <Table table={tableData} getColorCells={getColorCells}/>
+                <Table tableSize={tableData} getColorCells={getColorCells}/>
             </div>
         </div>
     )

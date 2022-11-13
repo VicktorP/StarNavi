@@ -1,3 +1,5 @@
+
+
 import './ActiveSquares.css'
 
 const ActiveSquares = ({colorCells}) => {
@@ -5,7 +7,7 @@ const ActiveSquares = ({colorCells}) => {
         <div >
             <h2>Active squares</h2>
             <ul className="color-cells-list">
-                {colorCells.map(cell=><li className="color-cell">row {cell.row} col {cell.column}</li>)}
+                {colorCells.map(cell=><li className="color-cell" key={`${cell.row}-${cell.column}`}>row {cell.row} col {cell.column}</li>)}
             </ul>
         </div>
     )
