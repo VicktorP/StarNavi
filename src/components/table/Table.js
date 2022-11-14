@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-const color1 = 'rgb(63, 164, 237)'
-const color2 = 'rgb(255, 255, 255)'
+const color1 = '#3fa4ed'
+const color2 = '#fff'
 
 const Cell = ({row, column, key, getColorCells}) => {
     const [color, setColor] = useState(color1)
@@ -40,14 +40,14 @@ const Table = ({tableSize, getColorCells}) => {
     const workArr = Array.from(Array(tableSize).keys())
     
     for(let i=1; i<=tableSize; i++) {
-        const row = [...workArr].map((item,index) => {
-            return <Cell row={i} column={index+1} key={`${i}-${index+1}`} getColorCells={getColorCells}/>
+        const row = [...workArr].map((item) => {
+            return <Cell row={i} column={item+1} key={`${i}-${item+1}`} getColorCells={getColorCells}/>
         })
-        tableMarkup.push(<Row row={[...row]} key={i}/>)
+        tableMarkup.push(<Row row={[...row]} key={`row${i}`}/>)
     }
 
     return(
-        <table className="hovering-table" key={'table'}>
+        <table className="hovering-table">
             <tbody>
                 {tableMarkup}
             </tbody>            
