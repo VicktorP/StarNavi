@@ -3,7 +3,7 @@ import { useState } from 'react'
 const color1 = '#3fa4ed'
 const color2 = '#fff'
 
-const Cell = ({row, column, key, getColorCells}) => {
+const Cell = ({row, column, getColorCells}) => {
     const [color, setColor] = useState(color1)
 
     const toggleHandleMouseEnter = (event) => {
@@ -23,15 +23,15 @@ const Cell = ({row, column, key, getColorCells}) => {
         <td 
             data-row={row} 
             data-column={column} 
-            key={key} 
+
             onMouseEnter={toggleHandleMouseEnter}>
         </td>
     )
 }
 
-const Row = ({row, key}) => {
+const Row = ({row}) => {
     return(
-        <tr key={key}>{row}</tr>
+        <tr >{row}</tr>
     )
 }
 
